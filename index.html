@@ -8,16 +8,15 @@
 </head>
 <body>
 
-<div class="stars"></div>
+<div id="stars"></div>
 
-<div class="card" data-tilt>
+<div class="card">
     <img src="avatar.png" class="avatar" alt="SORASUMA">
 
     <h1>SORASUMA</h1>
 
     <div class="status">Коммиссии открыты</div>
-
-    <div class="divider">✦ ݁˖ ⋆ ˚࿔ ✦ ݁˖ ⋆ ˚࿔</div>
+    <div class="divider">✮ ⋆ ˚｡𖦹 ⋆｡°✩</div>
 
     <div class="buttons">
         <a href="price.html" class="btn">Прайс-лист</a>
@@ -25,20 +24,32 @@
     </div>
 
     <div class="socials">
-        <a href="https://linktr.ee/Sorasuma" target="_blank" class="icon-link">
+        <a href="https://linktr.ee/Sorasuma" target="_blank" class="social-btn">
             <img src="linktree.png" alt="Linktree">
         </a>
 
-        <a href="https://vk.com/sorasuma" target="_blank" class="icon-link">
+        <a href="https://vk.com/sorasuma" target="_blank" class="social-btn">
             <img src="vk.png" alt="VK">
         </a>
     </div>
 </div>
 
-<div class="footer-update">
-    Последнее обновление 10.06.26
-</div>
+<div class="footer-update">Последнее обновление 10.06.26</div>
 
-<script src="vanilla-tilt.js"></script>
+<script>
+const stars=document.getElementById('stars');
+const chars=['.','✦','݁˖','⋆','˚࿔'];
+for(let i=0;i<120;i++){
+ const s=document.createElement('span');
+ s.className='star';
+ s.innerText=chars[Math.floor(Math.random()*chars.length)];
+ s.style.left=Math.random()*100+'vw';
+ s.style.top=Math.random()*100+'vh';
+ s.style.animationDelay=(Math.random()*6)+'s';
+ s.style.fontSize=(10+Math.random()*18)+'px';
+ stars.appendChild(s);
+}
+</script>
+
 </body>
 </html>
