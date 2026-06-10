@@ -9,51 +9,52 @@ src:url('Leotaro-Regular.otf') format('opentype');
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-min-height:100vh;
 font-family:'Montserrat',sans-serif;
-background:radial-gradient(circle at top,#2a1d57 0%,#090911 45%,#030305 100%);
-color:white;
+background:radial-gradient(circle at top,#2b2317 0%,#0c0c0f 45%,#040404 100%);
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 padding:30px;
+color:#fff;
+overflow-x:hidden;
 }
 
 .stars{
 position:fixed;
 inset:0;
 background-image:
-radial-gradient(white 1px, transparent 1px),
-radial-gradient(white 1px, transparent 1px);
-background-size:120px 120px,180px 180px;
-background-position:0 0,60px 90px;
-opacity:.25;
+radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px),
+radial-gradient(rgba(255,255,255,.6) 1px,transparent 1px);
+background-size:140px 140px,220px 220px;
+background-position:0 0,80px 120px;
+opacity:.35;
+animation:starfade 8s ease-in-out infinite;
 pointer-events:none;
 }
 
-.wrapper{
-position:relative;
-z-index:2;
+@keyframes starfade{
+50%{opacity:.55}
 }
 
 .card,.panel{
-background:rgba(255,255,255,.06);
+background:rgba(255,255,255,.05);
 backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.1);
-box-shadow:0 20px 60px rgba(0,0,0,.45);
+border:1px solid rgba(248,156,11,.18);
+box-shadow:0 0 40px rgba(248,156,11,.08);
 }
 
 .card{
-width:460px;
+width:520px;
 max-width:90vw;
-padding:40px;
-border-radius:32px;
+padding:42px;
+border-radius:30px;
 text-align:center;
 }
 
 .avatar{
-width:160px;
-height:160px;
+width:170px;
+height:170px;
 border-radius:50%;
 object-fit:cover;
 margin-bottom:20px;
@@ -63,35 +64,34 @@ h1{
 font-family:'Leotaro';
 font-size:72px;
 font-weight:normal;
-line-height:1;
 margin-bottom:16px;
 }
 
 .status{
-font-size:22px;
 font-weight:700;
+font-size:22px;
 margin-bottom:10px;
 }
 
 .divider{
-margin-bottom:25px;
-opacity:.9;
+color:#F89C0B;
+margin-bottom:24px;
 }
 
 .buttons{
 display:flex;
 flex-direction:column;
-gap:12px;
+gap:14px;
 }
 
 .btn{
 display:block;
 text-decoration:none;
 color:white;
-padding:15px;
+padding:16px;
 border-radius:16px;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.06);
+border:1px solid rgba(248,156,11,.2);
 position:relative;
 overflow:hidden;
 transition:.3s;
@@ -99,56 +99,45 @@ transition:.3s;
 
 .btn:hover{
 transform:translateY(-2px);
-box-shadow:0 0 25px rgba(180,150,255,.35);
+box-shadow:0 0 24px rgba(248,156,11,.35);
 }
 
-.btn::before{
+.btn:before{
 content:'';
 position:absolute;
-top:0;
 left:-120%;
+top:0;
 width:50%;
 height:100%;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
 transform:skewX(-20deg);
 transition:.8s;
 }
 
-.btn:hover::before{left:150%;}
+.btn:hover:before{left:150%;}
 
 .socials{
 display:flex;
 justify-content:center;
-gap:16px;
+gap:14px;
 margin-top:24px;
 }
 
 .social-btn{
 width:56px;
 height:56px;
-border-radius:16px;
 display:flex;
-justify-content:center;
 align-items:center;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.1);
+justify-content:center;
+border-radius:14px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(248,156,11,.2);
 }
 
 .social-btn img{
-width:30px;
-height:30px;
+width:28px;
+height:28px;
 object-fit:contain;
-}
-
-.footer-update{
-position:fixed;
-bottom:12px;
-left:50%;
-transform:translateX(-50%);
-font-size:12px;
-font-style:italic;
-opacity:.7;
-z-index:10;
 }
 
 .page{
@@ -156,8 +145,8 @@ width:min(700px,90vw);
 }
 
 .page h1{
-margin-bottom:20px;
 text-align:center;
+margin-bottom:20px;
 }
 
 .panel{
@@ -167,6 +156,16 @@ margin-bottom:20px;
 }
 
 .panel p{
-margin-bottom:16px;
+margin-bottom:14px;
 line-height:1.7;
+}
+
+.footer-update{
+position:fixed;
+left:50%;
+bottom:14px;
+transform:translateX(-50%);
+font-size:12px;
+font-style:italic;
+opacity:.65;
 }
