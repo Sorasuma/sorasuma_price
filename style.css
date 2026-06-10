@@ -1,28 +1,161 @@
 
-/* Добавь этот блок вместо JS-звезд */
-.stars{
+@font-face{
+font-family:'Leotaro';
+src:url('Leotaro-Regular.otf') format('opentype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+min-height:100vh;
+font-family:'Montserrat',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle at top,#2a1d57 0%,#090911 45%,#030305 100%);
+overflow:hidden;
+color:white;
+}
+
+.wrapper{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:20px;
+position:relative;
+z-index:2;
+}
+
+.card{
+width:560px;
+max-width:90vw;
+padding:40px;
+border-radius:32px;
+text-align:center;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.10);
+box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.avatar{
+width:160px;
+height:160px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:20px;
+}
+
+h1{
+font-family:'Leotaro';
+font-size:72px;
+font-weight:normal;
+margin-bottom:14px;
+line-height:1;
+}
+
+.status{
+font-size:22px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.divider{
+opacity:.9;
+margin-bottom:28px;
+}
+
+.buttons{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.btn{
+position:relative;
+overflow:hidden;
+padding:16px;
+border-radius:16px;
+text-decoration:none;
+color:white;
+background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05));
+border:1px solid rgba(255,255,255,.12);
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 0 25px rgba(180,150,255,.4);
+}
+
+.btn::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:50%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+transform:skewX(-20deg);
+transition:.8s;
+}
+
+.btn:hover::before{
+left:150%;
+}
+
+.socials{
+margin-top:28px;
+display:flex;
+justify-content:center;
+gap:18px;
+}
+
+.social-btn{
+width:56px;
+height:56px;
+border-radius:16px;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.12);
+transition:.3s;
+}
+
+.social-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 0 20px rgba(180,150,255,.35);
+}
+
+.social-btn img{
+width:32px;
+height:32px;
+object-fit:contain;
+}
+
+.footer-update{
+font-size:12px;
+font-style:italic;
+opacity:.7;
+}
+
+#stars{
 position:fixed;
 inset:0;
-background-image:
-radial-gradient(white 1px, transparent 1px),
-radial-gradient(white 1px, transparent 1px);
-background-size:120px 120px,180px 180px;
-background-position:0 0,60px 90px;
-opacity:.25;
 pointer-events:none;
 }
 
-/* Замени существующий стиль footer-update */
-.footer-update{
-position:fixed;
-bottom:15px;
-left:50%;
-transform:translateX(-50%);
+.star{
+position:absolute;
+color:rgba(255,255,255,.8);
+text-shadow:0 0 8px rgba(255,255,255,.6);
+animation:twinkle infinite ease-in-out;
+}
 
-font-size:12px;
-font-style:italic;
-font-weight:300;
-opacity:.7;
-
-z-index:10;
+@keyframes twinkle{
+0%,100%{opacity:.15}
+50%{opacity:1}
 }
