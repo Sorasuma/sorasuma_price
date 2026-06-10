@@ -1,70 +1,181 @@
 
-
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-.gallery img{max-width:100%;max-height:340px;width:auto;height:auto}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88)}
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:24px;
-margin:24px 0 40px;
+@font-face{
+font-family:'Leotaro';
+src:url('Leotaro-Regular.otf') format('opentype');
 }
 
-.gallery a{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:radial-gradient(circle at top,#2b2317 0%,#0c0c0f 45%,#040404 100%);
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-text-decoration:none;
+padding:30px;
+color:#fff;
+overflow-x:hidden;
 }
 
-.gallery img{
-max-width:100%;
-max-height:340px;
-width:auto;
-height:auto;
-border-radius:12px;
-transition:.25s;
-}
-
-.gallery img:hover{
-transform:scale(1.03);
-}
-
-.placeholder{
-height:180px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:rgba(255,255,255,.04);
-border-radius:12px;
-color:#F89C0B;
-}
-
-.lightbox{
+.stars{
 position:fixed;
 inset:0;
-background:rgba(0,0,0,.88);
-display:none;
+background-image:
+radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px),
+radial-gradient(rgba(255,255,255,.6) 1px,transparent 1px);
+background-size:140px 140px,220px 220px;
+background-position:0 0,80px 120px;
+opacity:.35;
+animation:starfade 8s ease-in-out infinite;
+pointer-events:none;
+}
+
+@keyframes starfade{
+50%{opacity:.55}
+}
+
+.card,.panel{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(18px);
+border:1px solid rgba(248,156,11,.18);
+box-shadow:0 0 40px rgba(248,156,11,.08);
+}
+
+.card{
+width:520px;
+max-width:90vw;
+padding:42px;
+border-radius:30px;
+text-align:center;
+}
+
+.avatar{
+width:170px;
+height:170px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:20px;
+}
+
+h1{
+font-family:'Leotaro';
+font-size:72px;
+font-weight:normal;
+margin-bottom:16px;
+}
+
+.status{
+font-weight:700;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.divider{
+color:#F89C0B;
+margin-bottom:24px;
+}
+
+.buttons{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.btn{
+display:block;
+text-decoration:none;
+color:white;
+padding:16px;
+border-radius:16px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(248,156,11,.2);
+position:relative;
+overflow:hidden;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 0 24px rgba(248,156,11,.35);
+}
+
+.btn:before{
+content:'';
+position:absolute;
+left:-120%;
+top:0;
+width:50%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+transform:skewX(-20deg);
+transition:.8s;
+}
+
+.btn:hover:before{left:150%;}
+
+.socials{
+display:flex;
+justify-content:center;
+gap:14px;
+margin-top:24px;
+}
+
+.social-btn{
+width:56px;
+height:56px;
+display:flex;
 align-items:center;
 justify-content:center;
-z-index:9999;
+border-radius:14px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(248,156,11,.2);
 }
 
-.lightbox.active{
-display:flex;
+.social-btn img{
+width:28px;
+height:28px;
+object-fit:contain;
 }
 
-.lightbox img{
-max-width:90vw;
-max-height:90vh;
-border-radius:12px;
+.page{
+width:min(700px,90vw);
 }
 
-.lightbox-close{
-position:absolute;
-top:20px;
-right:30px;
-font-size:42px;
-color:white;
-cursor:pointer;
+.page h1{
+text-align:center;
+margin-bottom:20px;
 }
+
+.panel{
+padding:30px;
+border-radius:24px;
+margin-bottom:20px;
+}
+
+.panel p{
+margin-bottom:14px;
+line-height:1.7;
+}
+
+.footer-update{
+position:fixed;
+left:50%;
+bottom:14px;
+transform:translateX(-50%);
+font-size:12px;
+font-style:italic;
+opacity:.65;
+}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin:24px 0 40px}
+.gallery a{display:flex;justify-content:center;align-items:center;text-decoration:none}
+.gallery img{max-width:100%;max-height:340px;width:auto;height:auto;border-radius:12px;transition:.25s}
+.gallery img:hover{transform:scale(1.03)}
+.placeholder{height:180px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);border-radius:12px;color:#F89C0B}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:9999}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:12px}
+.lightbox-close{position:absolute;top:20px;right:30px;font-size:42px;color:white;cursor:pointer}
