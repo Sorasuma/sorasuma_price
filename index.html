@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div id="stars"></div>
+<div class="stars"></div>
 
 <div class="wrapper">
   <div class="card">
@@ -37,21 +37,6 @@
 
   <div class="footer-update">Последнее обновление 10.06.26</div>
 </div>
-
-<script>
-const container = document.getElementById('stars');
-for(let i=0;i<180;i++){
-  const star=document.createElement('span');
-  star.className='star';
-  star.textContent='✦';
-  star.style.left=Math.random()*100+'vw';
-  star.style.top=Math.random()*100+'vh';
-  star.style.fontSize=(4+Math.random()*10)+'px';
-  star.style.animationDelay=(Math.random()*8)+'s';
-  star.style.animationDuration=(4+Math.random()*6)+'s';
-  container.appendChild(star);
-}
-</script>
 
 </body>
 </html>
