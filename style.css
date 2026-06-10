@@ -169,38 +169,3 @@ font-size:12px;
 font-style:italic;
 opacity:.65;
 }
-
-
-.name-divider{
-width:180px;
-height:1px;
-margin:0 auto 22px auto;
-background:linear-gradient(90deg,transparent,rgba(248,156,11,.9),transparent);
-}
-
-body{
-background:
-radial-gradient(circle at top,
-rgba(248,156,11,.12) 0%,
-rgba(248,156,11,.04) 18%,
-#070708 55%,
-#020202 100%) !important;
-}
-
-.page{
-width:min(700px,90vw);
-position:relative;
-z-index:2;
-}
-
-.page .btn{
-max-width:220px;
-margin:auto;
-text-align:center;
-}
-
-.panel{
-background:rgba(18,18,22,.78) !important;
-border:1px solid rgba(248,156,11,.18) !important;
-box-shadow:0 0 40px rgba(248,156,11,.08);
-}
