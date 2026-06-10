@@ -9,40 +9,52 @@ src:url('Leotaro-Regular.otf') format('opentype');
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-min-height:100vh;
 font-family:'Montserrat',sans-serif;
+background:radial-gradient(circle at top,#2b2317 0%,#0c0c0f 45%,#040404 100%);
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:radial-gradient(circle at top,#2a1d57 0%,#090911 45%,#030305 100%);
-overflow:hidden;
-color:white;
+padding:30px;
+color:#fff;
+overflow-x:hidden;
 }
 
-.wrapper{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:20px;
-position:relative;
-z-index:2;
+.stars{
+position:fixed;
+inset:0;
+background-image:
+radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px),
+radial-gradient(rgba(255,255,255,.6) 1px,transparent 1px);
+background-size:140px 140px,220px 220px;
+background-position:0 0,80px 120px;
+opacity:.35;
+animation:starfade 8s ease-in-out infinite;
+pointer-events:none;
+}
+
+@keyframes starfade{
+50%{opacity:.55}
+}
+
+.card,.panel{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(18px);
+border:1px solid rgba(248,156,11,.18);
+box-shadow:0 0 40px rgba(248,156,11,.08);
 }
 
 .card{
-width:560px;
+width:520px;
 max-width:90vw;
-padding:40px;
-border-radius:32px;
+padding:42px;
+border-radius:30px;
 text-align:center;
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.10);
-box-shadow:0 20px 60px rgba(0,0,0,.45);
 }
 
 .avatar{
-width:160px;
-height:160px;
+width:170px;
+height:170px;
 border-radius:50%;
 object-fit:cover;
 margin-bottom:20px;
@@ -52,19 +64,18 @@ h1{
 font-family:'Leotaro';
 font-size:72px;
 font-weight:normal;
-margin-bottom:14px;
-line-height:1;
+margin-bottom:16px;
 }
 
 .status{
-font-size:22px;
 font-weight:700;
+font-size:22px;
 margin-bottom:10px;
 }
 
 .divider{
-opacity:.9;
-margin-bottom:28px;
+color:#F89C0B;
+margin-bottom:24px;
 }
 
 .buttons{
@@ -74,88 +85,87 @@ gap:14px;
 }
 
 .btn{
-position:relative;
-overflow:hidden;
-padding:16px;
-border-radius:16px;
+display:block;
 text-decoration:none;
 color:white;
-background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05));
-border:1px solid rgba(255,255,255,.12);
+padding:16px;
+border-radius:16px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(248,156,11,.2);
+position:relative;
+overflow:hidden;
 transition:.3s;
 }
 
 .btn:hover{
 transform:translateY(-2px);
-box-shadow:0 0 25px rgba(180,150,255,.4);
+box-shadow:0 0 24px rgba(248,156,11,.35);
 }
 
-.btn::before{
+.btn:before{
 content:'';
 position:absolute;
-top:0;
 left:-120%;
+top:0;
 width:50%;
 height:100%;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
 transform:skewX(-20deg);
 transition:.8s;
 }
 
-.btn:hover::before{
-left:150%;
-}
+.btn:hover:before{left:150%;}
 
 .socials{
-margin-top:28px;
 display:flex;
 justify-content:center;
-gap:18px;
+gap:14px;
+margin-top:24px;
 }
 
 .social-btn{
 width:56px;
 height:56px;
-border-radius:16px;
 display:flex;
-justify-content:center;
 align-items:center;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.12);
-transition:.3s;
-}
-
-.social-btn:hover{
-transform:translateY(-2px);
-box-shadow:0 0 20px rgba(180,150,255,.35);
+justify-content:center;
+border-radius:14px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(248,156,11,.2);
 }
 
 .social-btn img{
-width:32px;
-height:32px;
+width:28px;
+height:28px;
 object-fit:contain;
 }
 
+.page{
+width:min(700px,90vw);
+}
+
+.page h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+.panel{
+padding:30px;
+border-radius:24px;
+margin-bottom:20px;
+}
+
+.panel p{
+margin-bottom:14px;
+line-height:1.7;
+}
+
 .footer-update{
+position:fixed;
+left:50%;
+bottom:14px;
+transform:translateX(-50%);
 font-size:12px;
 font-style:italic;
-opacity:.7;
-}
-
-#stars{
-position:fixed;
-inset:0;
-pointer-events:none;
-}
-
-.star{
-position:absolute;
-color:rgba(255,255,255,.8);
-text-shadow:0 0 8px rgba(255,255,255,.6);
-animation:twinkle infinite ease-in-out;
-}
-
-@keyframes twinkle{
-0%,100%{opacity:.15}
-50%{opacity:1}
+opacity:.65;
 }
