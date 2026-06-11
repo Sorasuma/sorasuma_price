@@ -312,3 +312,40 @@ grid-template-columns:1fr;
 
     opacity:.9;
 }
+
+.status-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 22px;
+
+    margin-bottom:14px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(248,156,11,.18);
+
+    box-shadow:0 0 20px rgba(248,156,11,.08);
+
+    font-size:15px;
+    font-weight:500;
+
+    color:#f3eee6;
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#F89C0B;
+
+    margin-right:10px;
+
+    box-shadow:0 0 10px #F89C0B;
+}
