@@ -364,3 +364,79 @@ grid-template-columns:1fr;
 
     box-shadow:0 0 10px #F89C0B;
 }
+
+/* ========================= */
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+/* ========================= */
+
+@media (max-width:768px){
+
+    body{
+        padding:16px;
+    }
+
+    .card{
+        width:100%;
+        max-width:100%;
+        padding:28px 20px;
+    }
+
+    .avatar{
+        width:120px;
+        height:120px;
+    }
+
+    h1{
+        font-size:48px;
+    }
+
+    .status-badge{
+        font-size:14px;
+        padding:10px 18px;
+    }
+
+    .btn{
+        padding:14px;
+    }
+
+    .social-btn{
+        width:48px;
+        height:48px;
+    }
+
+    .social-btn img{
+        width:24px;
+        height:24px;
+    }
+
+    .site-nav{
+        gap:16px;
+        padding:8px 14px;
+    }
+
+    .site-nav a{
+        font-size:13px;
+    }
+
+    .page{
+        width:100%;
+    }
+
+    .page h1{
+        font-size:42px;
+    }
+
+    .price-grid{
+        grid-template-columns:1fr;
+        gap:24px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-items{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
