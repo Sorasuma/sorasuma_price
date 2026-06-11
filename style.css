@@ -292,3 +292,7 @@ grid-template-columns:1fr;
 .site-nav a.active{
     color:#F89C0B;
 }
+
+.price-page{
+    padding-top:100px;
+}
