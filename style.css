@@ -296,3 +296,19 @@ grid-template-columns:1fr;
 .price-page{
     padding-top:100px;
 }
+
+.name-divider{
+    width:180px;
+    height:1px;
+
+    margin:0 auto 22px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #F89C0B,
+        transparent
+    );
+
+    opacity:.9;
+}
