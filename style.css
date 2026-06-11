@@ -210,11 +210,13 @@ grid-template-columns:1fr;
 .lightbox.active{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;border-radius:12px}
 .lightbox-close{position:absolute;top:20px;right:30px;font-size:42px;color:white;cursor:pointer}
+
 .price-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:40px;
-    margin:25px 0;
+    grid-template-columns:repeat(3,max-content);
+    gap:80px;
+
+    justify-content:start;
 }
 
 .price-item{
