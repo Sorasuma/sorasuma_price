@@ -67,6 +67,15 @@ font-weight:normal;
 margin-bottom:16px;
 }
 
+h2{
+font-family:'Leotaro';
+font-size:34px;
+font-weight:normal;
+color:#f3eee6;
+
+margin-bottom:20px;
+}
+
 .status{
 font-weight:700;
 font-size:22px;
@@ -244,4 +253,33 @@ grid-template-columns:1fr;
         gap:20px;
     }
 
+}
+.site-nav{
+    position:fixed;
+    top:24px;
+    left:50%;
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:32px;
+
+    z-index:1000;
+}
+
+.site-nav a{
+    color:rgba(255,255,255,.7);
+    text-decoration:none;
+
+    font-size:14px;
+    letter-spacing:1px;
+
+    transition:.3s;
+}
+
+.site-nav a:hover{
+    color:#F89C0B;
+}
+
+.site-nav a.active{
+    color:#F89C0B;
 }
