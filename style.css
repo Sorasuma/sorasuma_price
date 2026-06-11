@@ -260,8 +260,17 @@ grid-template-columns:1fr;
     left:50%;
     transform:translateX(-50%);
 
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(248,156,11,.15);
+
     display:flex;
-    gap:32px;
+    gap:28px;
 
     z-index:1000;
 }
@@ -271,7 +280,7 @@ grid-template-columns:1fr;
     text-decoration:none;
 
     font-size:14px;
-    letter-spacing:1px;
+    letter-spacing:.5px;
 
     transition:.3s;
 }
