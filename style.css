@@ -56,9 +56,13 @@ overflow:visible;
 
 .card::before{
     content:"";
+
     position:absolute;
+
     inset:-2px;
+
     border-radius:32px;
+
     background:
     linear-gradient(
         120deg,
@@ -69,9 +73,22 @@ overflow:visible;
     );
 
     background-size:300% 300%;
+
     animation:borderShift 8s linear infinite;
+
     z-index:-1;
+
     opacity:.75;
+}
+
+@keyframes borderShift{
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:300% 50%;
+    }
 }
 
 @keyframes borderShift{
