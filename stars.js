@@ -2,7 +2,8 @@
   const container = document.querySelector('.stars');
   if(!container) return;
 
-  const STAR_COUNT = 70;
+  const isMobile = window.innerWidth <= 768;
+  const STAR_COUNT = isMobile ? 30 : 70;
   const symbols = ['✦','✧','⋆','·'];
 
   for(let i = 0; i < STAR_COUNT; i++){
@@ -12,7 +13,7 @@
 
     star.style.left = Math.random() * 100 + 'vw';
     star.style.top = Math.random() * 100 + 'vh';
-    star.style.fontSize = (Math.random() * 10 + 6) + 'px';
+    star.style.fontSize = (isMobile ? Math.random() * 8 + 5 : Math.random() * 10 + 6) + 'px';
 
     const duration = (Math.random() * 3 + 2).toFixed(2);
     const delay = (Math.random() * 4).toFixed(2);
