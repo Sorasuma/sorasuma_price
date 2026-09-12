@@ -448,27 +448,63 @@ grid-template-columns:1fr;
     .gallery-items{
         grid-template-columns:repeat(2,1fr);
     }
+      .page{
+        padding-bottom:80px;
+    }
 
 }
 /* ===== Навигация по разделам прайса ===== */
 .section-nav{
+  position:fixed;
+  top:50%;
+  right:20px;
+  transform:translateY(-50%);
   display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  justify-content:center;
-  margin-bottom:24px;
+  flex-direction:column;
+  gap:10px;
+  z-index:1000;
 }
+
 .section-nav a{
-  color: inherit;
+  display:block;
+  padding:8px 14px;
+  font-size:13px;
+  text-align:right;
+  color:rgba(255,255,255,.6);
   text-decoration:none;
-  font-size:14px;
-  padding:6px 14px;
-  border:1px solid rgba(255,255,255,0.2);
-  border-radius:999px;
-  opacity:0.8;
-  transition: opacity .2s ease, background .2s ease;
+  border-right:2px solid transparent;
+  transition:.3s;
 }
+
 .section-nav a:hover{
-  opacity:1;
-  background: rgba(255,255,255,0.08);
+  color:#F89C0B;
+  border-right-color:#F89C0B;
+}
+
+@media (max-width:900px){
+  .section-nav{
+    top:auto;
+    bottom:0;
+    left:0;
+    right:0;
+    transform:none;
+    flex-direction:row;
+    justify-content:space-around;
+    background:rgba(10,10,12,.85);
+    backdrop-filter:blur(12px);
+    border-top:1px solid rgba(248,156,11,.15);
+    padding:10px 6px;
+    gap:0;
+  }
+  .section-nav a{
+    font-size:11px;
+    text-align:center;
+    padding:6px 4px;
+    border-right:none;
+    border-top:2px solid transparent;
+  }
+  .section-nav a:hover{
+    border-right-color:transparent;
+    border-top-color:#F89C0B;
+  }
 }
