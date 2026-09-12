@@ -21,20 +21,30 @@ overflow-x:hidden;
 }
 
 .stars{
-position:fixed;
-inset:0;
-background-image:
-radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px),
-radial-gradient(rgba(255,255,255,.6) 1px,transparent 1px);
-background-size:140px 140px,220px 220px;
-background-position:0 0,80px 120px;
-opacity:.35;
-animation:starfade 8s ease-in-out infinite;
-pointer-events:none;
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
 }
 
-@keyframes starfade{
-50%{opacity:.55}
+.stars .star{
+  position:absolute;
+  color:#fff;
+  opacity:.2;
+  animation:twinkle ease-in-out infinite;
+}
+
+.stars .star.accent{
+  color:#F89C0B;
+}
+
+@keyframes twinkle{
+  0%,100%{opacity:.15; transform:scale(.85);}
+  50%{opacity:1; transform:scale(1.15);}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .stars .star{ animation:none; opacity:.4; }
 }
 
 .card,.panel{
