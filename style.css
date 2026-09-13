@@ -429,9 +429,10 @@ grid-template-columns:1fr;
         font-size:13px;
     }
 
-    .page{
-        width:100%;
-    }
+.page{
+    width:100%;
+    padding-top:80px;
+}
 
     .page h1{
         font-size:42px;
