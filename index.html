@@ -51,14 +51,16 @@
 <script src="vanilla-tilt.js"></script>
 
 <script>
-VanillaTilt.init(document.querySelector(".card"),{
-    max:15,
-    speed:500,
-    scale:1.03,
-    glare:true,
-    "max-glare":0.35,
-    perspective:1200
-});
+if (window.matchMedia("(min-width: 769px)").matches) {
+    VanillaTilt.init(document.querySelector(".card"),{
+        max:15,
+        speed:500,
+        scale:1.03,
+        glare:true,
+        "max-glare":0.35,
+        perspective:1200
+    });
+}
 </script>
 
 </body>
