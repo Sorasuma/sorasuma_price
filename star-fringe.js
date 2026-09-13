@@ -9,7 +9,7 @@
 */
 (() => {
   const FRINGE_CFG = {
-    columnGap: 34,          // расстояние между нитями, px — реже, чем в шторке на весь экран
+    columnGap: 62,          // расстояние между нитями, px — заметно реже, для более разреженной бахромы
     starsPerColumn: 5,       // длинные нити — полноценная бахрома, свисающая заметно ниже блока
     segmentLength: 30,
     gravity: 0.05,
@@ -18,16 +18,16 @@
     mouseRadius: 46,
     mouseForce: 1.1,
     grabRadiusBase: 14,
-    chimeCooldown: 260,
-    velocityTrigger: 0.9,
+    chimeCooldown: 420,      // реже "звенит" — спокойнее, без суеты
+    velocityTrigger: 1.6,    // звук только от заметного движения, не от любого дрожания
     minStar: 5,
     maxStar: 8,
-    soundPeak: 0.055,        // тише, чем в полноэкранной версии — это фоновая деталь, не акцент
-    soundRelease: [0.55, 1.0] // [мин, макс] секунд затухания — короче, чтобы не мешать чтению текста
+    soundPeak: 0.022,        // ощутимо тише — фон для релакса, а не акцент
+    soundRelease: [0.7, 1.3] // чуть длиннее хвост — мягче тает, а не обрывается
   };
 
-  const GLYPHS_MAIN = ['☆', '✧', '✦', '✩', '✯'];
-  const GLYPHS_ACCENT = ['⋆', '˚', '｡', '・'];
+  const GLYPHS_MAIN = ['☆', '✧', '✦', '✩', '✯', '✮'];
+  const GLYPHS_ACCENT = ['⋆', '˚', '｡', '・', '°', '𖦹'];
   function pickGlyph() {
     return Math.random() < 0.2
       ? GLYPHS_ACCENT[(Math.random() * GLYPHS_ACCENT.length) | 0]
@@ -54,7 +54,8 @@
     }
     unlocked = true;
   }
-  // звуки тут
+  // тихая разблокировка звука по первому клику где угодно на странице —
+  // без баннеров и оверлеев, раз бахрома встроена в обычный контент
   ['pointerdown', 'keydown', 'touchstart'].forEach(evt => {
     document.addEventListener(evt, ensureAudio, { once: true, passive: true });
   });
@@ -65,12 +66,12 @@
     const delayB = audioCtx.createDelay(2.0);
     delayB.delayTime.value = 0.15;
     const feedback = audioCtx.createGain();
-    feedback.gain.value = 0.32;
+    feedback.gain.value = 0.22;
     const filter = audioCtx.createBiquadFilter();
     filter.type = 'lowpass';
-    filter.frequency.value = 2400;
+    filter.frequency.value = 2000;
     const wet = audioCtx.createGain();
-    wet.gain.value = 0.4;
+    wet.gain.value = 0.28;
     const input = audioCtx.createGain();
     input.connect(delayA);
     input.connect(delayB);
