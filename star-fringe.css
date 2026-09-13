@@ -1,0 +1,51 @@
+/*
+  Звёздная бахрома — крепится к нижнему краю блока с текстом.
+  Использование: добавьте <div class="star-fringe"></div> сразу после
+  блока, к низу которого её нужно "пришить" (например, после .panel).
+
+  Все цвета — переменные, задавайте свои поверх этого файла:
+
+    .star-fringe{
+      --fringe-glyph: #в_ваш_акцентный_цвет;
+      --fringe-glow:  #в_цвет_свечения;
+    }
+*/
+.star-fringe{
+  --fringe-glyph: #f3e3c8;
+  --fringe-glow:  #f6cfcf;
+  --fringe-thread: rgba(0,0,0,0.08);
+
+  position: relative;
+  width: 100%;
+  height: 92px;
+  margin-top: -1px; /* визуально "сшивает" с нижним краем блока */
+  pointer-events: none; /* включаем только на canvas ниже */
+}
+.star-fringe canvas{
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  cursor: grab;
+}
+.star-fringe canvas.grabbing{ cursor: grabbing; }
+
+.star-fringe .fringe-mute{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--fringe-glyph);
+  opacity: 0.45;
+  font-size: 13px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: opacity .2s ease;
+}
+.star-fringe .fringe-mute:hover{ opacity: 0.85; }
