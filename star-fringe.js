@@ -10,8 +10,8 @@
 (() => {
   const FRINGE_CFG = {
     columnGap: 34,          // расстояние между нитями, px — реже, чем в шторке на весь экран
-    starsPerColumn: 2,       // короткие нити — деликатная бахрома, а не занавес
-    segmentLength: 26,
+    starsPerColumn: 5,       // длинные нити — полноценная бахрома, свисающая заметно ниже блока
+    segmentLength: 30,
     gravity: 0.05,
     damping: 0.992,
     solverIterations: 3,
@@ -54,8 +54,7 @@
     }
     unlocked = true;
   }
-  // тихая разблокировка звука по первому клику где угодно на странице —
-  // без баннеров и оверлеев, раз бахрома встроена в обычный контент
+  // звуки тут
   ['pointerdown', 'keydown', 'touchstart'].forEach(evt => {
     document.addEventListener(evt, ensureAudio, { once: true, passive: true });
   });
